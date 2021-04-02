@@ -3,4 +3,6 @@
 *.suo
 *.ide-shm
 *.ide-wal
+*.dll.config
+*.pdb
 
