@@ -42,7 +42,7 @@ namespace ventaVehiculosAPI.Controllers
                 }
                 else
                 {
-                    response = Request.CreateResponse(HttpStatusCode.NotFound, "Usuario no existe en el sistema");
+                    response = Request.CreateResponse(HttpStatusCode.NoContent, "Usuario no existe en el sistema");
                 }
 
             return response;

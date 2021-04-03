@@ -38,6 +38,7 @@ namespace ventaVehiculosAPI.Classes.JWT
         {
             HttpStatusCode statusCode;
 
+            
             if (!TryRetrieveToken(request, out string token))
             {
                 statusCode = HttpStatusCode.Unauthorized;
@@ -79,7 +80,6 @@ namespace ventaVehiculosAPI.Classes.JWT
 
             return Task<HttpResponseMessage>.Factory.StartNew(() => new HttpResponseMessage(statusCode) { });
         }
-
 
         public bool LifetimeValidator(DateTime? notBefore, DateTime? expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
         {
