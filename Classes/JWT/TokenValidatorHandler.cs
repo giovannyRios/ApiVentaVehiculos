@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Net;
 using System.Configuration;
+using ventaVehiculosModels.Models.Log;
 
 namespace ventaVehiculosAPI.Classes.JWT
 {
@@ -69,12 +70,14 @@ namespace ventaVehiculosAPI.Classes.JWT
                 return base.SendAsync(request, cancellationToken);
 
             }
-            catch (SecurityTokenValidationException)
+            catch (SecurityTokenValidationException se)
             {
                 statusCode = HttpStatusCode.Unauthorized;
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo SendAsync " + se.ToString());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo SendAsync " + ex.ToString());
                 statusCode = HttpStatusCode.InternalServerError;
             }
 

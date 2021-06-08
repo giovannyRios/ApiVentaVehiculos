@@ -7,6 +7,7 @@ using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using ventaVehiculosModels.Models;
 using ventaVehiculosModels.Models.DTOs;
+using ventaVehiculosModels.Models.Log;
 using ventaVehiculosAPI.Classes.Modules;
 using ventaVehiculosAPI.Classes.JWT;
 using System.Collections;
@@ -39,6 +40,7 @@ namespace ventaVehiculosAPI.Controllers
             }
             catch (Exception e) 
             {
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo getAllCars " + e.ToString());
                 throw e;
             }
         }

@@ -7,6 +7,7 @@ using System.Web.Http;
 using Swashbuckle.Swagger.Annotations;
 using ventaVehiculosModels.Models;
 using ventaVehiculosModels.Models.DTOs;
+using ventaVehiculosModels.Models.Log;
 using ventaVehiculosAPI.Classes.Modules;
 using ventaVehiculosAPI.Classes.JWT;
 
@@ -49,6 +50,7 @@ namespace ventaVehiculosAPI.Controllers
 
             } catch (Exception e) {
                 var response = Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo login " + e.ToString());
                 return response;
             }
             
