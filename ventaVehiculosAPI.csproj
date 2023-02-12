@@ -172,8 +172,10 @@
     <Compile Include="Classes\JWT\TokenGenerator.cs" />
     <Compile Include="Classes\JWT\TokenValidatorHandler.cs" />
     <Compile Include="Classes\JWT\validacionToken.cs" />
+    <Compile Include="Classes\Modules\carActions.cs" />
     <Compile Include="Classes\Modules\UserActions.cs" />
     <Compile Include="Classes\Swagger\AddAuthorizationHeadersParametersFilter.cs" />
+    <Compile Include="Controllers\carController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

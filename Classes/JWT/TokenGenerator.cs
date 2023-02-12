@@ -5,6 +5,7 @@ using System.Web;
 using System.Security.Claims;
 using System.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using ventaVehiculosModels.Models.Log;
 
 namespace ventaVehiculosAPI.Classes.JWT
 {
@@ -41,7 +42,7 @@ namespace ventaVehiculosAPI.Classes.JWT
             }
             catch (Exception e)
             {
-                //Construir registro en log
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo tokenGeneratorJWT " + e.ToString());
                 return "";
             }
         }

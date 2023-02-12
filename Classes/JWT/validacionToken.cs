@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using ventaVehiculosModels.Models.Log;
 
 namespace ventaVehiculosAPI.Classes.JWT
 {
@@ -49,12 +50,14 @@ namespace ventaVehiculosAPI.Classes.JWT
                     return false;
                 }
             }
-            catch (SecurityTokenValidationException)
+            catch (SecurityTokenValidationException se)
             {
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo validation " + se.ToString());
                 return false;
             }
             catch (Exception e)
             {
+                cunsumirLog.crearRegistroLog("ventaVehiculosAPI" + DateTime.Now.ToShortDateString(), "Ha ocurrido un error en el metodo validation " + e.ToString());
                 return false;
             }
         }
